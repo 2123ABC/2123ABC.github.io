@@ -544,6 +544,10 @@
     }());
 </script>
 
+
+
+<script src=https://2123abc.github.io/js/topbar.min.js></script>
+
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({
@@ -600,11 +604,6 @@
             setTimeout(resolve, time)
         })
     }
-
-    document.addEventListener('pjax:complete', () => {
-        renderKaTeX();
-        topbar.hide();
-    })
     
     topbar.config({
         barColors: {
@@ -612,10 +611,13 @@
             '1.0': 'rgba(0, 149, 234,  1)' 
         }
     })
-	
     document.addEventListener('pjax:send', () => {
         
         topbar.show();
+    })
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+        topbar.hide();
     })
 </script>
 
